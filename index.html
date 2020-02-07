@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Revisao (Formulario)</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="">
+</head>
+	<script>
+		function blokletras(objEvent) {
+		var iKeyCode;
+		iKeyCode = objEvent.keyCode;
+			if(iKeyCode>=48 && iKeyCode<=57) {
+				return true;
+			}else{
+				alert ("Esse campo so aceita numeros")
+				return false;
+			}
+		}
+		function valida() {
+			vazio=false;
+			if (document.fl.txtNome.value=="") 
+			{
+				alert("Campo senha obrigatório");
+				vazio="true";
+			}
+			if(document.fl.txtNome2.value=="")
+			{
+				alert("Campo login obrigatório");
+				vazio="true";
+			}	
+		}
+	</script>
+<body>
+	<div>
+	<form name="formName" action="login.php" method="POST">
+		<h1>Login com metodo POST</h1>
+
+		Digite seu login <br>
+		<input type="text"
+		name="nomeDoUsuario" size="50" maxlength="40"
+		required="required"><br>
+
+		Digite sua senha <br>
+		<input type="text" 
+		name="senhaDoUsuario" size="50" maxlength="40"
+		required="required" placeholder="Senha numerica" onkeypress="return blokletras(event)"><br><br>
+
+		<input type="submit" name="pesquisar" value="Login com POST">
+	</form>
+	</div>
+</body>
+</html>	
